@@ -26,8 +26,8 @@ function M.show(custom_message)
   local buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
 
-  -- Make the buffer non-modifiable and wipe it when closed
-  vim.api.nvim_set_option_value("modifiable", false, { buf = buf })
+  -- Make the buffer modifiable so you can edit the text
+  vim.api.nvim_set_option_value("modifiable", true, { buf = buf })
   vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = buf })
   vim.api.nvim_set_option_value("buftype", "nofile", { buf = buf })
 
